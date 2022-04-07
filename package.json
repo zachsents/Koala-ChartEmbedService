@@ -1,0 +1,18 @@
+{
+  "name": "web",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --base=/chart-embed-service/",
+    "preview": "vite preview",
+    "prepublish": "gsutil rm -a gs://chart-embed-service/** & npm run build",
+    "publish": "gsutil cp -r ./dist/* gs://chart-embed-service"
+  },
+  "devDependencies": {
+    "vite": "^2.8.0"
+  },
+  "dependencies": {
+    "@mongodb-js/charts-embed-dom": "^2.2.0"
+  }
+}
